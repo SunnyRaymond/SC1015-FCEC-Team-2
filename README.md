@@ -108,3 +108,52 @@ Explore the relationships between categorical features (with non-numeric values)
 ### Decisions
 
 - Consider implementing fare bands for the **Fare** feature.
+
+# Next step is clean data
+
+## Correcting by dropping features
+
+Based on our previous analysis we want to drop the Cabin and Ticket features.
+
+Note that where applicable we perform operations on both training and testing datasets together to stay consistent.
+
+## Creating new feature extracting from existing
+
+**Observations.**
+
+
+- Most titles band Age groups accurately. For example: Master title has Age mean of 5 years.
+- Survival among Title Age bands varies slightly.
+- Certain titles mostly survived (Mme, Lady, Sir) or did not (Don, Rev, Jonkheer).
+
+**Decision.**
+
+- We decide to retain the new Title feature for model training.
+
+## Converting a categorical feature
+
+Now we can convert features which contain strings to numerical values. This is required by most model algorithms. Doing so will also help us in achieving the feature completing goal.
+
+converting Sex feature to a new feature called Gender where female=1 and male=0.
+
+## Completing a numerical continuous feature
+
+Note correlation among Age, Gender, and Pclass. Guess Age values using median values for Age across sets of Pclass and Gender feature combinations. So, median Age for Pclass=1 and Gender=0, Pclass=1 and Gender=1, ...
+
+## Create new feature combining existing features
+
+We can create a new feature for FamilySize which combines Parch and SibSp. This will enable us to drop Parch and SibSp from our datasets.
+
+## Completing a categorical feature
+
+Embarked feature takes S, Q, C values based on port of embarkation. Our training dataset has two missing values. We simply fill these with the most common occurance.
+
+## Converting categorical feature to numeric
+
+We can now convert the EmbarkedFill feature by creating a new numeric Port feature.
+
+## Quick completing and converting a numeric feature
+
+complete the Fare feature for single missing value in test dataset using mode to get the value that occurs most frequently for this feature. 
+
+round off the fare to two decimals
