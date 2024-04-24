@@ -1,9 +1,9 @@
 # SC1015-FCEC-Team-2
 
-## Question and Problem Definition
+# Question and Problem Definition
 Given a training dataset listing passengers who either survived or didn't survive the Titanic disaster, can our model predict, using a test dataset that lacks survival information, whether these passengers survived?
 
-# We decide to deploy the following workflow stages
+## We decide to deploy the following workflow stages
 
 1. **Define the question or problem.**
 2. **Gather training and testing data.**
