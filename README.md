@@ -32,7 +32,7 @@ Given a training dataset listing passengers who either survived or didn't surviv
 # We first acquire data and analyze by describing data
 
 # Then we made assumptions Based on Data Analysis
-### Correlating
+## Correlating
 
 We aim to assess how closely each feature is associated with survival at the project's onset, intending to compare these preliminary findings with correlations derived from more detailed models later in the projec### 
 
