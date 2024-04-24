@@ -13,22 +13,6 @@ Given a training dataset listing passengers who either survived or didn't surviv
 6. **Visualize, document, and present the steps of problem-solving and the ultimate solution.**
 7. **Provide the results.**
 
-## Workflow Goals
-
-- **Classifying.** Our aim might be to classify or categorize our samples, and to understand the impact or correlation of various classes with our solution goal.
-
-- **Correlating.** The approach could involve analyzing available features in the training dataset to determine which ones significantly contribute to our solution goal. It is important to evaluate whether there is a statistical correlation between a feature and the solution outcome and if changes in feature values alter the solution state and vice versa. This assessment is valid for both numerical and categorical features in the dataset. It also involves exploring correlations between features that go beyond survival to aid further goals and workflow stages.
-
-- **Converting.** The modeling phase requires data preparation, where depending on the model algorithm, features might need to be converted to numerical equivalents, such as converting categorical text values to numbers.
-
-- **Completing.** Preparing data may also involve estimating missing values within a feature since model algorithms typically perform best when no values are missing.
-
-- **Correcting.** The training dataset might be scrutinized for errors or potentially inaccurate values within features, aiming to correct these values or exclude the samples that contain these errors. This could involve identifying outliers among our samples or features, or completely discarding a feature if it doesn't contribute to the analysis or might significantly skew the results.
-
-- **Creating.** There may be opportunities to create new features based on an existing feature or a group of features, ensuring the new feature aligns with correlation, conversion, and completeness objectives.
-
-- **Charting.** The selection of appropriate visualization plots and charts depends on the nature of the data and the solution goals.
-
 # We first acquire data and analyze by describing data
 
 # Then we made assumptions Based on Data Analysis
@@ -68,8 +52,6 @@ Further assumptions can be added based on initial problem descriptions:
 
 Utilizing a histogram chart proves valuable for examining continuous numerical variables such as **Age**, where establishing bands or ranges can reveal significant patterns. Histograms show the distribution of samples across automatically determined bins or consistent ranges, aiding in addressing queries about specific age groups (e.g., Did infants have a higher survival rate?).
 
-Note: The x-axis of histogram visualizations denotes the count of samples or passengers.
-
 ### Observations
 
 - Infants (Age <=4) exhibited a high survival rate.
@@ -83,3 +65,46 @@ Note: The x-axis of histogram visualizations denotes the count of samples or pas
 - Address missing values in the Age data.
 - Segment age into distinct groups.
 
+## Correlating Numerical and Ordinal Features
+
+Utilize a single plot to identify correlations by combining multiple features, both numerical and categorical that have numeric values.
+
+### Observations
+
+- **Pclass=3** had the highest number of passengers, yet the majority did not survive. This observation supports our classifying assumption #2.
+- Infant passengers in **Pclass=2** and **Pclass=3** mostly survived, adding further support to our classifying assumption #2.
+- The majority of passengers in **Pclass=1** survived, confirming our classifying assumption #3.
+- There is variation in the **Age** distribution of passengers across different **Pclass** groups.
+
+### Decisions
+
+- **Pclass** should be considered in our model training.
+
+## Correlating Categorical Features
+
+Correlate categorical features with our solution goal to identify significant relationships.
+
+### Observations
+
+- Female passengers exhibited a significantly higher survival rate compared to males, supporting our classifying assumption (#1).
+- An exception was noted at **Embarked=C**, where males displayed a higher survival rate. This suggests a potential correlation between **Pclass** and **Embarked**, and subsequently between **Pclass** and **Survived**, rather than a direct correlation between **Embarked** and **Survived**.
+- Males had a better survival rate in **Pclass=3** compared to **Pclass=2** at **Embarked=C** and **Embarked=Q**, underscoring our need to complete information on embarkation (completing #2).
+- Survival rates varied among male passengers at different ports of embarkation within **Pclass=3**, aligning with correlating assumption (#1).
+
+### Decisions
+
+- Include the **Sex** feature in model training.
+- Complete and incorporate the **Embarked** feature in model training.
+
+## Correlating Categorical and Numerical Features
+
+Explore the relationships between categorical features (with non-numeric values) and numeric features. Focus on correlating **Embarked** (categorical non-numeric), **Sex** (categorical non-numeric), **Fare** (numeric continuous), with **Survived** (categorical numeric).
+
+### Observations
+
+- Passengers who paid higher fares had a better survival rate, supporting the idea of creating fare ranges as mentioned in our assumption for creating (#4).
+- The port of embarkation shows a correlation with survival rates, confirming our correlating assumption (#1) and the need to complete this information (completing #2).
+
+### Decisions
+
+- Consider implementing fare bands for the **Fare** feature.
