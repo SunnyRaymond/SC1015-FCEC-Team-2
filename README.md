@@ -157,3 +157,59 @@ We can now convert the EmbarkedFill feature by creating a new numeric Port featu
 complete the Fare feature for single missing value in test dataset using mode to get the value that occurs most frequently for this feature. 
 
 round off the fare to two decimals
+
+# Nearly final step---Model, predict and solve
+
+Our problem is a classification and regression problem. We want to identify relationship between output (Survived or not) with other variables or features (Gender, Age, Port...). We are also perfoming a category of machine learning which is called supervised learning as we are training our model with a given dataset. With these two criteria - Supervised Learning plus Classification and Regression, Choices include:
+
+- Logistic Regression
+- Decision Tree
+- Random Forrest
+
+## Validating Assumptions with Logistic Regression
+
+Logistic Regression can be employed to validate our assumptions and decisions related to feature creation and completion by examining the coefficients of the features in the decision function.
+
+### Key Insights from Logistic Regression
+
+- **Positive Coefficients**: These increase the log-odds of the response, enhancing the probability of the outcome. A significant observation is the **Sex** feature, which has the highest positive coefficient, indicating that as the Sex value increases (from male: 0 to female: 1), the probability of Survived=1 also increases significantly.
+
+- **Negative Coefficients**: These decrease the log-odds of the response, reducing the probability of the outcome. For instance, as **Pclass** increases, the probability of Survived=1 decreases the most. This highlights the inverse relationship between Pclass and survival.
+
+- **Artificial Feature Inclusion**: The interaction term **Age\*Class** emerges as a good artificial feature for modeling, as it exhibits the second-highest negative correlation with survival. Similarly, **Title** stands out with the second-highest positive correlation with survival.
+
+### Decisions
+
+Based on these findings:
+- Prioritize features with strong positive or negative coefficients in the logistic regression model to refine the predictive accuracy.
+- Consider creating and using artificial interaction features like **Age\*Class** and **Title** that have shown significant correlations with the outcome.
+
+## Decision Tree Model Overview
+
+The decision tree model is a predictive modeling technique used for both classification and regression tasks:
+
+- **Classification Trees**: In these tree structures, the target variable takes a finite set of values. The leaves of the tree represent class labels, while the branches represent conjunctions of features that lead to these labels.
+
+- **Regression Trees**: These trees are used when the target variable can take continuous values, typically real numbers. In regression trees, the path from the root to the leaf represents decision rules applicable to the input features.
+
+### Model Confidence
+
+- The model confidence score for the decision tree is the highest among all models evaluated so far, indicating its strong predictive performance.
+
+This clear distinction between classification and regression trees helps in understanding the specific application and utility of decision trees depending on the nature of the target variable and the dataset at hand.
+
+## Random Forest Model Overview
+
+Random Forests are one of the most popular machine learning methods used today. They are an ensemble learning method applicable to both classification and regression tasks. Here’s how they work:
+
+- **Ensemble Learning Method**: Random Forests operate by constructing multiple decision trees during training. For a classification task, the final prediction is the mode of the classes predicted by individual trees; for a regression task, it is the mean prediction of the trees.
+
+- **Parameter: n_estimators**: Typically, Random Forests consist of multiple trees (e.g., `n_estimators=100`), which means 100 decision trees are constructed.
+
+### Model Confidence
+
+- The confidence score of the Random Forest model is the highest among all models evaluated, highlighting its robustness and reliability in predictive accuracy.
+
+### Decision for final output
+
+- Based on the superior performance of the Random Forest model, we have decided to use its output (`Y_pred`) for our output of results. This decision underscores our confidence in the model's predictive capabilities and its suitability for handling the task at hand.
