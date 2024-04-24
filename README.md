@@ -213,3 +213,10 @@ Random Forests are one of the most popular machine learning methods used today. 
 ### Decision for final output
 
 - Based on the superior performance of the Random Forest model, we have decided to use its output (`Y_pred`) for our output of results. This decision underscores our confidence in the model's predictive capabilities and its suitability for handling the task at hand.
+
+
+# Final Model evaluation
+Our submission to the competition site Kaggle , achieving a 77.00 score.
+
+# References
+- [Getting Started with Pandas: Kaggle's Titanic Competition](https://www.kaggle.com/c/titanic/details/getting-started-with-random-forests)
