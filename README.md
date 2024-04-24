@@ -62,4 +62,24 @@ Further assumptions can be added based on initial problem descriptions:
 - Children (Age<?) were more likely to survive.
 - Upper-class passengers (Pclass=1) had a higher likelihood of survival.
 
+# After that we Analyze Data by Visualizing
+
+## Correlating Numerical Features
+
+Utilizing a histogram chart proves valuable for examining continuous numerical variables such as **Age**, where establishing bands or ranges can reveal significant patterns. Histograms show the distribution of samples across automatically determined bins or consistent ranges, aiding in addressing queries about specific age groups (e.g., Did infants have a higher survival rate?).
+
+Note: The x-axis of histogram visualizations denotes the count of samples or passengers.
+
+### Observations
+
+- Infants (Age <=4) exhibited a high survival rate.
+- The oldest passengers (Age = 80) survived.
+- A significant number of individuals aged 15-25 did not survive.
+- The majority of passengers fell within the 15-35 age group.
+
+### Decisions
+
+- Age should be incorporated into our model training, as it is crucial.
+- Address missing values in the Age data.
+- Segment age into distinct groups.
 
