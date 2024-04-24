@@ -5,12 +5,12 @@ Given a training dataset listing passengers who either survived or didn't surviv
 
 ## We decide to deploy the following workflow stages
 
-1. **Define the question or problem.**
-2. **Gather training and testing data.**
-3. **Organize, prepare, and purify the data.**
-4. **Analyze, recognize patterns, and explore the data.**
-5. **Model, forecast, and address the problem.**
-6. **Visualize, document, and present the steps of problem-solving and the ultimate solution.**
+1. **Define the question or problem.SHI QILUN**
+2. **Gather training and testing data.GUO YICHEN**
+3. **Organize, prepare, and purify the data.GUO YICHEN**
+4. **Analyze, recognize patterns, and explore the data.GUO YICHEN**
+5. **Model, forecast, and address the problem.TAO QIANKUAN GUO YICHEN SHI QILUN**
+6. **Visualize, document, and present the steps of problem-solving and the ultimate solution.TAO QIANKUAN**
 7. **Provide the results.**
 
 # We first acquire data and analyze by describing data
